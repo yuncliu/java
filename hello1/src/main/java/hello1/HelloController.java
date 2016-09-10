@@ -1,4 +1,5 @@
 package hello1;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,5 +27,16 @@ public class HelloController {
     public String tmp(Model model) {
         model.addAttribute("name", "Spring mvc");
         return "tmp";
+    }
+
+    @RequestMapping(value="/comments", method=RequestMethod.GET)
+    public String comments(Model model) {
+        Vector comments = new Vector(10,1);
+        comments.addElement("hello");
+        comments.addElement("hello1");
+        comments.addElement("hello2");
+        model.addAttribute("msg", "jstl forEach");
+        model.addAttribute("comments", comments);
+        return "comments";
     }
 }
