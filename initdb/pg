@@ -1,0 +1,31 @@
+#!/bin/bash
+
+export PGDATA=$HOME/.pgdata
+logfile="$HOME/pg.log"
+function init()
+{
+    initdb
+    pg_ctl -D $PGDATA -l $logfile start
+    sleep 1
+    createdb test
+    psql test -f role.sql
+    psql -U hello test -f init.sql
+}
+
+case $1 in
+    "init")
+        echo "init"
+        init
+        echo "inited"
+        ;;
+    "start")
+        echo "start"
+        pg_ctl -D $PGDATA -l $logfile start
+        echo "started"
+        ;;
+    "stop")
+        echo "stop"
+        pg_ctl stop -m smart
+        echo "stopped"
+        ;;
+esac
