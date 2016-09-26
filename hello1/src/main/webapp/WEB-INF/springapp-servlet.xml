@@ -23,7 +23,7 @@
         <property name="username" value="hello" />
         <property name="password" value="hello" />
     </bean>
-    <bean id="myUserDAO" class="hello1.JdbcmyUserDAO">
+    <bean id="myUserDAO" class="hello1.myUserDAOImpl">
         <property name="dataSource" ref="dataSource" />
     </bean>
 

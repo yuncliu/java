@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import hello1.myUser;
 import hello1.myUserDAO;
-import hello1.JdbcmyUserDAO;
+import hello1.myUserDAOImpl;
 
 @Controller
 public class HelloController {
 
     @Autowired
-    private JdbcmyUserDAO jdbcmyUserDAO;
+    private myUserDAOImpl jdbcmyUserDAO;
 
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String index() {

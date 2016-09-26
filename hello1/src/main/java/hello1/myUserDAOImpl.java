@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import hello1.myUser;
 import hello1.myUserDAO;
 
-class JdbcmyUserDAO extends JdbcDaoSupport implements myUserDAO {
+class myUserDAOImpl extends JdbcDaoSupport implements myUserDAO {
     /*
     private DataSource dataSource;
     public void setDataSource(DataSource dataSource) {
